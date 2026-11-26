@@ -1,0 +1,313 @@
+/* ============================================================
+   高中有机化学命名速查手册 · 紧凑版
+   ============================================================ */
+
+body.quick-body {
+  font-size: 9.4pt;
+  line-height: 1.55;
+}
+
+.quick-page {
+  break-before: page;
+  page-break-before: always;
+  min-height: 245mm;
+}
+
+.quick-page:first-of-type {
+  break-before: auto;
+  page-break-before: auto;
+}
+
+.quick-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 4mm;
+  border-top: 2.4pt solid var(--teal);
+  padding-top: 3.2mm;
+  margin-bottom: 4mm;
+}
+
+.quick-head .qnum {
+  font-family: "Times New Roman", serif;
+  font-size: 34pt;
+  line-height: 0.9;
+  color: var(--amber);
+  min-width: 16mm;
+}
+
+.quick-head h1 {
+  font-size: 19pt;
+  line-height: 1.25;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.quick-head .qsub {
+  margin-top: 1mm;
+  font-family: "Microsoft YaHei", sans-serif;
+  font-size: 8.2pt;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+.quick-grid {
+  display: grid;
+  gap: 3mm;
+  margin: 3mm 0;
+}
+
+.quick-grid.two { grid-template-columns: 1fr 1fr; }
+.quick-grid.three { grid-template-columns: 1fr 1fr 1fr; }
+.quick-grid.four { grid-template-columns: 1fr 1fr 1fr 1fr; }
+
+.quick-card {
+  background: #ffffff;
+  border: 0.55pt solid var(--line);
+  border-top: 2pt solid var(--teal);
+  padding: 2.4mm 3mm 2.2mm;
+  border-radius: 1mm;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.quick-card h3 {
+  font-family: "Microsoft YaHei", sans-serif;
+  font-size: 10pt;
+  line-height: 1.35;
+  color: var(--teal);
+  margin: 0 0 1.2mm;
+}
+
+.quick-card p,
+.quick-card li {
+  font-size: 8.7pt;
+  line-height: 1.55;
+  margin: 0.4mm 0;
+}
+
+.quick-card ul,
+.quick-card ol {
+  margin: 0.6mm 0 0;
+  padding-left: 4.6mm;
+}
+
+.quick-card .mini {
+  font-size: 8pt;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.mnemonic {
+  background: var(--teal);
+  color: #fffdf5;
+  border-radius: 1mm;
+  padding: 2.2mm 3mm;
+  font-family: "Microsoft YaHei", sans-serif;
+  font-size: 8.8pt;
+  line-height: 1.65;
+  break-inside: avoid;
+}
+
+.mnemonic b { color: #fff; }
+.mnemonic .amber { color: var(--amber-3); }
+
+.flow {
+  display: flex;
+  gap: 1.4mm;
+  align-items: stretch;
+  margin: 2mm 0;
+}
+
+.flow .step {
+  flex: 1;
+  background: var(--teal-3);
+  border: 0.5pt solid var(--teal-4);
+  border-radius: 0.8mm;
+  padding: 1.8mm 1.6mm;
+  text-align: center;
+  font-family: "Microsoft YaHei", sans-serif;
+  font-size: 8.1pt;
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+
+.flow .step b {
+  display: block;
+  color: var(--teal);
+  font-size: 9pt;
+  margin-bottom: 0.4mm;
+}
+
+.flow .arrow {
+  align-self: center;
+  color: var(--amber);
+  font-size: 13pt;
+  line-height: 1;
+}
+
+.quick-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 8.1pt;
+  line-height: 1.4;
+  font-family: "Microsoft YaHei", "SimSun", sans-serif;
+  margin: 1.5mm 0;
+}
+
+.quick-table th {
+  background: var(--teal);
+  color: #fff;
+  padding: 1.3mm 1.6mm;
+  border: 0.45pt solid var(--teal);
+  font-weight: 600;
+  text-align: left;
+}
+
+.quick-table td {
+  padding: 1.1mm 1.6mm;
+  border: 0.45pt solid var(--line);
+  vertical-align: top;
+}
+
+.quick-table tbody tr:nth-child(even) { background: #f8f5ee; }
+.quick-table tbody tr:nth-child(odd) { background: #fff; }
+.quick-table.center td,
+.quick-table.center th { text-align: center; }
+.quick-table.center td:first-child,
+.quick-table.center th:first-child { text-align: left; }
+
+.quick-table .wrong { color: var(--red); }
+.quick-table .right { color: var(--green); font-weight: 600; }
+
+.quick-rule {
+  background: #f4f9f8;
+  border-left: 3pt solid var(--teal);
+  padding: 2mm 3mm;
+  margin: 2mm 0;
+  font-size: 8.8pt;
+  line-height: 1.6;
+  break-inside: avoid;
+}
+
+.quick-rule b { color: var(--teal); }
+
+.quick-warn {
+  background: var(--red-2);
+  border-left: 3pt solid var(--red);
+  padding: 2mm 3mm;
+  margin: 2mm 0;
+  font-size: 8.5pt;
+  line-height: 1.55;
+  break-inside: avoid;
+}
+
+.quick-warn b { color: var(--red); }
+
+.quick-tip {
+  background: var(--green-2);
+  border-left: 3pt solid var(--green);
+  padding: 2mm 3mm;
+  margin: 2mm 0;
+  font-size: 8.5pt;
+  line-height: 1.55;
+  break-inside: avoid;
+}
+
+.quick-tip b { color: var(--green); }
+
+.quick-example {
+  background: #fbf8f1;
+  border: 0.55pt solid #dfd1b4;
+  padding: 2mm 3mm;
+  margin: 2mm 0;
+  font-size: 8.5pt;
+  line-height: 1.55;
+  break-inside: avoid;
+}
+
+.quick-example .q {
+  font-family: "Microsoft YaHei", sans-serif;
+  color: var(--amber);
+  font-weight: 700;
+  margin-bottom: 0.6mm;
+}
+
+.quick-example .name {
+  font-size: 10pt;
+  color: var(--teal);
+}
+
+.quick-fig {
+  text-align: center;
+  margin: 1.5mm 0;
+  break-inside: avoid;
+}
+
+.quick-fig img {
+  max-height: 27mm;
+  max-width: 100%;
+  height: auto;
+}
+
+.quick-fig .cap {
+  font-family: "Microsoft YaHei", sans-serif;
+  font-size: 7.6pt;
+  color: var(--muted);
+  margin-top: 0.6mm;
+}
+
+.quick-tag {
+  display: inline-block;
+  font-family: "Microsoft YaHei", sans-serif;
+  font-size: 6.8pt;
+  line-height: 1.4;
+  padding: 0.2mm 1.3mm;
+  border-radius: 0.6mm;
+  background: var(--teal-3);
+  color: var(--teal);
+  margin-left: 1.2mm;
+  vertical-align: 0.4mm;
+}
+
+.quick-tag.amber {
+  background: var(--amber-2);
+  color: var(--amber);
+}
+
+.quick-tag.red {
+  background: var(--red-2);
+  color: var(--red);
+}
+
+.quick-two-col {
+  column-count: 2;
+  column-gap: 6mm;
+  column-rule: 0.4pt solid var(--line-2);
+}
+
+.quick-two-col > * { break-inside: avoid; }
+
+.quick-index {
+  font-size: 8.3pt;
+  line-height: 1.55;
+}
+
+.quick-index td { padding: 1mm 1.8mm; }
+
+.quick-footer-note {
+  margin-top: 3mm;
+  padding-top: 1.8mm;
+  border-top: 0.5pt solid var(--line);
+  font-family: "Microsoft YaHei", sans-serif;
+  font-size: 7.6pt;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.quick-cover-points {
+  margin-top: 3mm;
+  font-size: 8.5pt;
+  line-height: 1.65;
+}
+
+/* A4 紧凑页面的页眉页脚由 Playwright 提供 */

@@ -903,6 +903,25 @@ ul.checklist li::before {
   color: var(--ink-2);
 }
 
+/* ---- compact TOC for the quick handbook ---- */
+.toc-quick .toc-head { margin-bottom: 4mm; }
+.toc-quick .toc-head h1 { font-size: 24pt; }
+.toc-quick .toc-item {
+  padding: 0.55mm 0;
+  font-size: 9.2pt;
+}
+.toc-quick .toc-item.part {
+  margin-top: 1.5mm;
+  padding-top: 0.8mm;
+  font-size: 9.8pt;
+}
+.toc-quick .toc-note {
+  margin-top: 4mm;
+  padding: 2mm 3mm;
+  font-size: 7.8pt;
+  line-height: 1.55;
+}
+
 /* ---------- exercise book ---------- */
 
 .exercise-body { font-size: 10.2pt; }

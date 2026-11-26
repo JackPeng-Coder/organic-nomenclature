@@ -27,6 +27,7 @@ BUILD.mkdir(exist_ok=True)
 OUTPUT.mkdir(exist_ok=True)
 
 CSS_URI = (ASSETS / "book.css").as_uri()
+QUICK_CSS_URI = (ASSETS / "quick.css").as_uri()
 STRUCT_URI = STRUCTS.as_uri()
 
 INDEX = json.loads((SRC / "data" / "structures_index.json").read_text(encoding="utf-8"))
@@ -100,9 +101,13 @@ def parse_toc(html: str):
 
 
 def render_body_html(book: str):
-    template = "knowledge.html" if book == "knowledge" else "exercise.html"
+    template = {"knowledge": "knowledge.html", "exercise": "exercise.html", "quick": "quick.html"}[book]
     if book == "knowledge":
         html = env.get_template(template).render(book=book, css_uri=CSS_URI)
+    elif book == "quick":
+        html = env.get_template(template).render(
+            book=book, css_uri=CSS_URI, quick_css_uri=QUICK_CSS_URI,
+        )
     else:
         html = env.get_template(template).render(
             book=book, css_uri=CSS_URI, chapters=CHAPTERS, items=ITEMS,
@@ -174,14 +179,24 @@ def pdf_render(html_path: Path, pdf_path: Path, *, kind: str, book: str, header_
                 prefer_css_page_size=True,
             )
         else:
+            if book == "quick":
+                margins = {"top": "16mm", "bottom": "17mm", "left": "14mm", "right": "14mm"}
+            else:
+                margins = {"top": "19mm", "bottom": "20mm", "left": "17mm", "right": "17mm"}
+            footer_label = {"knowledge": "知识手册", "exercise": "配套练习", "quick": "速查手册"}[book]
+            header_html = HEADER_TEMPLATE.replace("__LABEL__", header_label)
+            footer_html = FOOTER_TEMPLATE.replace("__LABEL__", footer_label)
+            if book == "quick":
+                header_html = header_html.replace("17mm", "14mm")
+                footer_html = footer_html.replace("17mm", "14mm")
             page.pdf(
                 path=str(pdf_path),
                 format="A4",
-                margin={"top": "19mm", "bottom": "20mm", "left": "17mm", "right": "17mm"},
+                margin=margins,
                 print_background=True,
                 display_header_footer=True,
-                header_template=HEADER_TEMPLATE.replace("__LABEL__", header_label),
-                footer_template=FOOTER_TEMPLATE.replace("__LABEL__", "知识手册" if book == "knowledge" else "配套练习"),
+                header_template=header_html,
+                footer_template=footer_html,
                 prefer_css_page_size=True,
             )
         browser.close()
@@ -246,6 +261,18 @@ def render_cover(book: str, pdf_path: Path):
             bottom_left="2026年11月 · 第一版",
             bottom_right="知识手册 / HANDBOOK",
         )
+    elif book == "quick":
+        context = dict(
+            light=False,
+            volume_no="Q",
+            kicker="QUICK REFERENCE",
+            title="高中有机化学<br>命名速查手册",
+            subtitle="查规则 · 记流程 · 40 条易错 · 考前 30 分钟",
+            points=["14 张规则表", "命名总流程", "40 条易错清单", "真题速查 + 口袋卡"],
+            mark="查",
+            bottom_left="2026年11月 · 第一版",
+            bottom_right="速查手册 / QUICK REFERENCE",
+        )
     else:
         context = dict(
             light=True,
@@ -269,8 +296,13 @@ def render_toc(book: str, entries, page_map, pdf_path: Path):
         entries=entries,
         page_map=page_map,
         css_uri=CSS_URI,
-        book_title="高中有机化学命名知识手册" if book == "knowledge" else "高中有机化学命名配套练习",
-        book_kicker="知识手册" if book == "knowledge" else "配套练习",
+        book_title={"knowledge": "高中有机化学命名知识手册", "exercise": "高中有机化学命名配套练习", "quick": "高中有机化学命名速查手册"}[book],
+        book_kicker={"knowledge": "知识手册", "exercise": "配套练习", "quick": "速查手册"}[book],
+        toc_note=(
+            "本手册按“先查规则、再记流程、最后扫错”的顺序编排。页眉编号对应 PDF 书签；考前重点看第 12—15 节。"
+            if book == "quick" else
+            "知识手册与配套练习的章节编号一一对应。先读规则与例析，再完成对应练习；练习册末尾集中给出答案与重点解析，便于自测后核对。"
+        ),
     )
     html_path = BUILD / f"{book}_toc.html"
     html_path.write_text(html, encoding="utf-8")
@@ -297,11 +329,16 @@ def merge_book(book: str, cover_pdf: Path, toc_pdf: Path, body_pdf: Path, entrie
         outline.append([level, e["title"], cover_count + toc_count + p])
 
     doc.set_toc(outline)
+    titles = {
+        "knowledge": "高中有机化学命名知识手册",
+        "exercise": "高中有机化学命名配套练习",
+        "quick": "高中有机化学命名速查手册",
+    }
     doc.set_metadata({
-        "title": "高中有机化学命名知识手册" if book == "knowledge" else "高中有机化学命名配套练习",
+        "title": titles[book],
         "author": "OpenCode · 2026",
         "subject": "高中化学有机化合物系统命名法",
-        "keywords": "高中化学, 有机化学, 命名, 系统命名法, 高考, 练习",
+        "keywords": "高中化学, 有机化学, 命名, 系统命名法, 高考, 速查",
         "creator": "HTML/CSS + Chromium + PyMuPDF",
         "producer": "OpenCode",
     })
@@ -323,7 +360,8 @@ def build_book(book: str):
     print(f"  TOC entries: {len(entries)}")
 
     body_pdf = BUILD / f"{book}_body.pdf"
-    pdf_render(body_html_path, body_pdf, kind="body", book=book, header_label="知识精讲" if book == "knowledge" else "配套练习")
+    header_label = {"knowledge": "知识精讲", "exercise": "配套练习", "quick": "速查 · 记忆"}[book]
+    pdf_render(body_html_path, body_pdf, kind="body", book=book, header_label=header_label)
     print(f"  body pages: {fitz.open(str(body_pdf)).page_count}")
 
     page_map = locate_pages(body_pdf, entries)
@@ -335,14 +373,20 @@ def build_book(book: str):
     toc_pdf = render_toc(book, entries, page_map, BUILD / f"{book}_toc.pdf")
     print(f"  toc pages: {fitz.open(str(toc_pdf)).page_count}")
 
-    out_name = "高中有机化学命名_知识手册.pdf" if book == "knowledge" else "高中有机化学命名_配套练习.pdf"
-    return merge_book(book, cover_pdf, toc_pdf, body_clean, entries, page_map, out_name)
+    out_names = {
+        "knowledge": "高中有机化学命名_知识手册.pdf",
+        "exercise": "高中有机化学命名_配套练习.pdf",
+        "quick": "高中有机化学命名_速查手册.pdf",
+    }
+    return merge_book(book, cover_pdf, toc_pdf, body_clean, entries, page_map, out_names[book])
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--book", choices=["knowledge", "exercise", "all"], default="all")
+    ap.add_argument("--book", choices=["knowledge", "exercise", "quick", "all"], default="all")
     args = ap.parse_args()
+    if args.book in ("quick", "all"):
+        build_book("quick")
     if args.book in ("knowledge", "all"):
         build_book("knowledge")
     if args.book in ("exercise", "all"):

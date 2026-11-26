@@ -11,7 +11,7 @@
   .toc-list { column-count: 1; }
 </style>
 </head>
-<body>
+<body class="{% if book_kicker == '速查手册' %}toc-quick{% endif %}">
 <div class="toc-page">
   <div class="toc-head">
     <div class="kicker">{{ book_kicker }} · CONTENTS</div>
@@ -32,8 +32,7 @@
   </ul>
 
   <div class="toc-note">
-    <b>使用建议</b>　知识手册与配套练习的章节编号一一对应。先读规则与例析，再完成对应练习；练习册末尾集中给出答案与重点解析，便于自测后核对。
-    带“拓展/选学”标记的内容用于强基、竞赛或大学衔接，不影响高考必考写法。
+    <b>使用建议</b>　{{ toc_note }}
   </div>
 </div>
 </body>
