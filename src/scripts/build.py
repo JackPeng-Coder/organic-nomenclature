@@ -216,6 +216,23 @@ def locate_pages(body_pdf: Path, entries):
     return page_map
 
 
+def strip_anchor_tokens(pdf_path: Path, entries, out_path: Path):
+    """Remove the tiny invisible TOC-search tokens from the text layer."""
+    doc = fitz.open(str(pdf_path))
+    tokens = [f"@@{e['anchor']}@@" for e in entries]
+    removed = 0
+    for page in doc:
+        for token in tokens:
+            for rect in page.search_for(token):
+                page.add_redact_annot(rect, fill=(1, 1, 1))
+                removed += 1
+        page.apply_redactions()
+    doc.save(str(out_path), garbage=4, deflate=True)
+    doc.close()
+    print(f"  stripped {removed} TOC tokens")
+    return out_path
+
+
 def render_cover(book: str, pdf_path: Path):
     if book == "knowledge":
         context = dict(
@@ -312,12 +329,14 @@ def build_book(book: str):
     page_map = locate_pages(body_pdf, entries)
     print(f"  located: {len(page_map)}/{len(entries)}")
 
+    body_clean = strip_anchor_tokens(body_pdf, entries, BUILD / f"{book}_body_clean.pdf")
+
     cover_pdf = render_cover(book, BUILD / f"{book}_cover.pdf")
     toc_pdf = render_toc(book, entries, page_map, BUILD / f"{book}_toc.pdf")
     print(f"  toc pages: {fitz.open(str(toc_pdf)).page_count}")
 
     out_name = "高中有机化学命名_知识手册.pdf" if book == "knowledge" else "高中有机化学命名_配套练习.pdf"
-    return merge_book(book, cover_pdf, toc_pdf, body_pdf, entries, page_map, out_name)
+    return merge_book(book, cover_pdf, toc_pdf, body_clean, entries, page_map, out_name)
 
 
 def main():
