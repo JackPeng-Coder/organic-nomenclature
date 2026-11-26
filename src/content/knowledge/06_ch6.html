@@ -1,0 +1,191 @@
+<div class="chapter">
+  <div class="chapter-head">
+    <div class="chapter-kicker">CHAPTER 06 · ALKENES</div>
+    <h1 class="chapter-title" data-level="chapter" data-toc="第6章　烯烃的命名" data-anchor="C6">烯烃的命名</h1>
+    <p class="chapter-lead">
+      烯烃命名只比烷烃多一条硬规则：主链必须包含双键的两个碳，编号必须让双键位次最小。剩下的，仍然是“选母体、编号、写取代基”的老流程。
+    </p>
+    <div class="chapter-nav">
+      <span><b>6.1</b> 主链与编号</span>
+      <span><b>6.2</b> 多烯与烯基</span>
+      <span><b>6.3</b> 环烯烃</span>
+      <span><b>6.4</b> 顺反异构初步</span>
+      <span><b>6.5</b> 典型例析</span>
+      <span><b>6.6</b> 易错清单</span>
+    </div>
+  </div>
+
+  <h2 class="section-title" data-level="section" data-toc="6.1　主链与编号" data-anchor="C6S1">6.1　主链与编号</h2>
+
+  <div class="rule-box">
+    <div class="box-title">烯烃系统命名四步</div>
+    <ol>
+      <li><b>选主链：</b>选含 C=C 两个碳的最长碳链；若有多条，选双键数目最多的一条。</li>
+      <li><b>编号：</b>从靠近双键的一端开始，使双键位次最小；若两端相同，再使取代基位次最小。</li>
+      <li><b>写取代基：</b>双键以外的基团作前缀；相同基合并，先简后繁。</li>
+      <li><b>写母体：</b>“某烯”，双键位次写在“烯”前；只有一种位置时也不能省略位次（乙烯、丙烯除外）。</li>
+    </ol>
+  </div>
+
+  <div class="example">
+    <div class="box-title"><span>例 6-1　1-丁烯与 2-丁烯</span><span class="tag">NAME</span></div>
+    <div class="example-body">
+      <div class="center">
+        {{ fig('1butene', '1-丁烯：双键在 1 位', 'small') }}
+        <div class="name">1-丁烯</div>
+      </div>
+      <div class="center">
+        {{ fig('3methyl1butene', '3-甲基-1-丁烯', 'small') }}
+        <div class="name">3-甲基-1-丁烯</div>
+      </div>
+    </div>
+    <div class="analysis"><b>读法：</b>主链 4 个碳，双键在 1 位；若从另一端编号，双键会变成 3 位，显然不是最低位次。</div>
+  </div>
+
+  <p>注意：<span class="name">3-甲基-1-丁烯</span> 不能写成“2-甲基-3-丁烯”。后者的双键位次更大，而且主链方向也选错了。</p>
+
+  <div class="warning">
+    <div class="box-title">双键位次不能省</div>
+    <p>乙烯、丙烯只有一种双键位置，可以省略位次；从丁烯开始，必须写清 1- 或 2-。例如 <span class="chem">CH<sub>3</sub>CH=CHCH<sub>3</sub></span> 是 2-丁烯，不是“丁烯”。</p>
+  </div>
+
+  <h2 class="section-title" data-level="section" data-toc="6.2　多烯与烯基" data-anchor="C6S2">6.2　多烯与烯基</h2>
+
+  <p>含两个双键的烃叫二烯烃，母体用“二烯”；双键位次全部写出，用逗号隔开。例如：</p>
+
+  <div class="example">
+    <div class="box-title"><span>例 6-2　1,3-丁二烯与异戊二烯</span><span class="tag">DIENE</span></div>
+    <div class="example-body">
+      <div class="center">
+        {{ fig('13butadiene', '1,3-丁二烯', 'small') }}
+        <div class="name">1,3-丁二烯</div>
+      </div>
+      <div class="center">
+        {{ fig('isoprene', '2-甲基-1,3-丁二烯（异戊二烯）', 'small') }}
+        <div class="name">2-甲基-1,3-丁二烯</div>
+      </div>
+    </div>
+    <div class="analysis"><b>读法：</b>主链 4 个碳，两个双键分别在 1、3 位；2 号碳上有一个甲基。异戊二烯是习惯名，系统名要写“2-甲基-1,3-丁二烯”。</div>
+  </div>
+
+  <p>若双键在侧链上，侧链作为“烯基”取代基，例如乙烯基 <span class="chem">—CH=CH<sub>2</sub></span>、烯丙基 <span class="chem">—CH<sub>2</sub>CH=CH<sub>2</sub></span>。命名时仍以含主双键的最长链为母体，不能把烯基拆开。</p>
+
+  <h2 class="section-title" data-level="section" data-toc="6.3　环烯烃" data-anchor="C6S3">6.3　环烯烃</h2>
+
+  <p>环烯烃以环为母体，称为“环某烯”。编号时，双键的两个碳必须占 1、2 位，并沿双键方向编号，使取代基位次尽可能小。</p>
+
+  <div class="example">
+    <div class="box-title"><span>例 6-3　环己烯与 1-甲基环己烯</span><span class="tag">CYCLOALKENE</span></div>
+    <div class="example-body">
+      <div class="center">
+        {{ fig('cyclohexene', '环己烯', 'small') }}
+        <div class="name">环己烯</div>
+      </div>
+      <div class="center">
+        {{ fig('1methylcyclohexene', '1-甲基环己烯', 'small') }}
+        <div class="name">1-甲基环己烯</div>
+      </div>
+    </div>
+    <div class="analysis"><b>读法：</b>双键占 1、2 位；甲基在 1 位。若把甲基放在 2 位，名称会变成 2-甲基环己烯，但双键方向要重新编号，位次组会变大。</div>
+  </div>
+
+  <h2 class="section-title" data-level="section" data-toc="6.4　顺反异构初步" data-anchor="C6S4">6.4　顺反异构初步</h2>
+
+  <p>双键不能自由旋转，因此双键两端的基团可以固定在双键平面的同侧或异侧，形成顺反异构。判断条件是：<b>双键的每个碳上都必须连有两个不同的基团</b>。只要有一个碳连了两个相同的基团，就没有顺反异构。</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <h4>有顺反异构</h4>
+      <p><span class="chem">CH<sub>3</sub>CH=CHCH<sub>3</sub></span>：每个双键碳上都连 H 和 CH<sub>3</sub>，两个基团不同。</p>
+    </div>
+    <div class="card">
+      <h4>无顺反异构</h4>
+      <p><span class="chem">(CH<sub>3</sub>)<sub>2</sub>C=CH<sub>2</sub></span>：左侧碳连两个相同的 CH<sub>3</sub>，无法区分顺反。</p>
+    </div>
+  </div>
+
+  <p>顺反的“顺”与“反”，是相对于双键平面而言：相同基团在同侧为顺，在异侧为反。对于 2-丁烯：</p>
+
+  <div class="example">
+    <div class="box-title"><span>例 6-4　顺-2-丁烯与反-2-丁烯</span><span class="tag">CIS / TRANS</span></div>
+    <div class="example-body">
+      <div class="center">
+        {{ fig('cis2butene', '顺-2-丁烯：两个甲基在同侧', 'small') }}
+        <div class="name">顺-2-丁烯</div>
+      </div>
+      <div class="center">
+        {{ fig('trans2butene', '反-2-丁烯：两个甲基在异侧', 'small') }}
+        <div class="name">反-2-丁烯</div>
+      </div>
+    </div>
+    <div class="analysis"><b>读法：</b>两个甲基在双键同侧为顺式，异侧为反式。若四个基团都不相同，顺/反就不够用了，需要 Z/E 标记（见第9章）。</div>
+  </div>
+
+  <div class="extend">
+    <div class="box-title">顺反与 Z/E 的关系</div>
+    <p>顺/反只看“相同基团”的相对位置；Z/E 则按次序规则比较双键每个碳上的两个基团，取较优基团。对于简单的 2-丁烯，顺式就是 Z，反式就是 E；但对于取代基不同的烯烃，顺式不一定等于 Z，反式也不一定等于 E。第9章会专门讲这个易错点。</p>
+  </div>
+
+  <h2 class="section-title" data-level="section" data-toc="6.5　典型例析" data-anchor="C6S5">6.5　典型例析</h2>
+
+  <div class="example">
+    <div class="box-title"><span>例 6-5　2-甲基-2-丁烯</span><span class="tag">NAME</span></div>
+    <div class="example-body wide-left">
+      <div>
+        <p>主链 4 个碳，双键在 2 位；2 号碳上有一个甲基。</p>
+        <div class="example-name">2-甲基-2-丁烯</div>
+        <p class="small">2 号碳上连两个甲基，因此没有顺反异构。</p>
+      </div>
+      {{ fig('2methyl2butene', '2-甲基-2-丁烯：2 号碳上两个甲基', 'small') }}
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="box-title"><span>例 6-6　2-乙基-1-丁烯</span><span class="tag">NAME</span></div>
+    <div class="example-body wide-left">
+      <div>
+        <p>主链 4 个碳，双键在 1 位；2 号碳上有一个乙基。</p>
+        <div class="example-name">2-乙基-1-丁烯</div>
+        <p class="small">不要因为“乙基比甲基长”就把主链选成 5 碳；含双键的最长链仍是 4 碳。</p>
+      </div>
+      {{ fig('2ethyl1butene', '2-乙基-1-丁烯：主链 4 碳，2 位乙基', 'small') }}
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="box-title"><span>例 6-7　3-甲基-2-戊烯</span><span class="tag">NAME</span></div>
+    <div class="example-body wide-left">
+      <div>
+        <p>主链 5 个碳，双键在 2 位；3 号碳上有一个甲基。</p>
+        <div class="example-name">3-甲基-2-戊烯</div>
+        <p class="small">若从右端编号，双键会变成 3 位，不是最低位次。</p>
+      </div>
+      {{ fig('3methyl2pentene', '3-甲基-2-戊烯', 'small') }}
+    </div>
+  </div>
+
+  <h2 class="section-title" data-level="section" data-toc="6.6　易错清单" data-anchor="C6S6">6.6　易错清单</h2>
+
+  <div class="table-wrap">
+    <table class="compact">
+      <thead><tr><th style="width:32%">错误名称</th><th style="width:28%">正确名称</th><th>错因</th></tr></thead>
+      <tbody>
+        <tr><td>2-甲基-3-丁烯</td><td>3-甲基-1-丁烯</td><td>双键位次不是最小；应从未端编号。</td></tr>
+        <tr><td>3-丁烯</td><td>1-丁烯</td><td>双键位次编号方向错。</td></tr>
+        <tr><td>2-乙基丙烷</td><td>2-甲基丁烷</td><td>把烷烃规则套到烯烃；这里没有双键，主链应选最长。</td></tr>
+        <tr><td>1,3-丁二烯（写成 1,4-丁二烯）</td><td>1,3-丁二烯</td><td>二烯位次不是最小。</td></tr>
+        <tr><td>2-甲基-1,3-丁二烯（写成 3-甲基-1,3-丁二烯）</td><td>2-甲基-1,3-丁二烯</td><td>取代基位次不是最小。</td></tr>
+        <tr><td>顺-2-甲基-2-丁烯</td><td>2-甲基-2-丁烯</td><td>2 号碳连两个相同甲基，没有顺反异构。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tip-box">
+    <div class="box-title">烯烃命名的“双低”</div>
+    <ul class="checklist">
+      <li>双键位次低：从靠近双键的一端编号。</li>
+      <li>取代基位次低：双键位次相同时，再让取代基位次组最小。</li>
+      <li>主链一定含双键：不能为了“最长”而把双键丢在支链里。</li>
+    </ul>
+  </div>
+</div>

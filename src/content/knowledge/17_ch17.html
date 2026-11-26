@@ -1,0 +1,195 @@
+<div class="chapter">
+  <div class="chapter-head">
+    <div class="chapter-kicker">CHAPTER 17 · CHIRALITY AND R/S</div>
+    <h1 class="chapter-title" data-level="chapter" data-toc="第17章　手性异构与 R/S 标记" data-anchor="C17">手性异构与 R/S 标记</h1>
+    <p class="chapter-lead">
+      手性是“左手和右手”的差别：看起来一样，却不能完全重合。手性碳是高中最常见的手性中心；R/S 则是给这两个镜像异构体编号的国际语言。
+    </p>
+    <div class="chapter-nav">
+      <span><b>17.1</b> 手性碳与手性分子</span>
+      <span><b>17.2</b> R/S 判断</span>
+      <span><b>17.3</b> Fischer 投影式与 D/L</span>
+      <span><b>17.4</b> 外消旋与内消旋</span>
+      <span><b>17.5</b> 手性药物</span>
+      <span><b>17.6</b> 例析与易错</span>
+    </div>
+  </div>
+
+  <h2 class="section-title" data-level="section" data-toc="17.1　手性碳与手性分子" data-anchor="C17S1">17.1　手性碳与手性分子</h2>
+
+  <p>一个碳原子若连有<b>四个互不相同的原子或基团</b>，它就是手性碳（不对称碳）。手性碳的四个基团在空间中有两种排布，互为镜像，不能重合，称为对映异构体。</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <h4>有手性碳</h4>
+      <p><span class="chem">CH<sub>3</sub>CH(OH)C<sub>2</sub>H<sub>5</sub></span>：2 号碳连 —OH、—C<sub>2</sub>H<sub>5</sub>、—CH<sub>3</sub>、—H，四个基团不同。</p>
+    </div>
+    <div class="card">
+      <h4>无手性碳</h4>
+      <p><span class="chem">CH<sub>3</sub>CH(OH)CH<sub>3</sub></span>：2 号碳连两个相同的 —CH<sub>3</sub>，不是手性碳。</p>
+    </div>
+    <div class="card">
+      <h4>有手性碳</h4>
+      <p><span class="chem">CH<sub>3</sub>CH(NH<sub>2</sub>)COOH</span>：α 碳连 —NH<sub>2</sub>、—COOH、—CH<sub>3</sub>、—H。</p>
+    </div>
+    <div class="card">
+      <h4>无手性碳</h4>
+      <p><span class="chem">CH<sub>2</sub>Cl<sub>2</sub></span>：碳连两个相同的 Cl，不是手性碳。</p>
+    </div>
+  </div>
+
+  <div class="warning">
+    <div class="box-title">有手性碳 ≠ 一定有手性分子</div>
+    <p>分子内若有对称面或对称中心，整体可能不手性。例如内消旋酒石酸有两个手性碳，但分子内有对称面，整体不旋光。反过来，有些分子没有手性碳，却可能因轴手性/面手性而手性（如累积二烯、联苯），这属于拓展内容。</p>
+  </div>
+
+  <h2 class="section-title" data-level="section" data-toc="17.2　R/S 判断" data-anchor="C17S2">17.2　R/S 判断</h2>
+
+  <div class="rule-box">
+    <div class="box-title">R/S 四步法</div>
+    <ol>
+      <li>找出四个基团：确认手性碳上的四个基团互不相同。</li>
+      <li>按次序规则给四个基团排序：1＞2＞3＞4。</li>
+      <li>把最小基团（4）放在远离观察者的方向（虚线/背后）。</li>
+      <li>看 1→2→3 的旋转方向：顺时针为 <i>R</i>（rectus，右），逆时针为 <i>S</i>（sinister，左）。</li>
+    </ol>
+  </div>
+
+  <p>次序规则与 Z/E 相同：先比直接相连的原子序数；相同则逐级比较；双键/三键按重复原子处理。例如 2-丁醇的四个基团优先级是：</p>
+
+  <div class="formula-strip">
+    <span>—OH</span><span class="arrow">＞</span><span>—C<sub>2</sub>H<sub>5</sub></span><span class="arrow">＞</span><span>—CH<sub>3</sub></span><span class="arrow">＞</span><span>—H</span>
+  </div>
+
+  <div class="example">
+    <div class="box-title"><span>例 17-1　2-丁醇的 R/S</span><span class="tag">R / S</span></div>
+    <div class="example-body wide-left">
+      <div>
+        <p>优先级：—OH（1）＞—C<sub>2</sub>H<sub>5</sub>（2）＞—CH<sub>3</sub>（3）＞—H（4）。</p>
+        <p>若 H 在虚线（远离读者），1→2→3 顺时针为 R，逆时针为 S。</p>
+        <p class="small">若 H 在实楔形（朝向读者），先按纸面方向判断，再把结果反转。</p>
+      </div>
+      {{ fig('r2butanol', '2-丁醇的立体结构示意（未标 R/S）', 'small') }}
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <div class="box-title">“最小基团朝后”是判断关键</div>
+    <p>如果最小基团不在背后，不要直接看顺逆时针。最稳妥的方法是：把最小基团与它对面的基团交换一次，再判断；交换一次会改变构型，所以最后要把 R/S 反转一次。或者把分子在脑中旋转，把 H 转到背后。</p>
+  </div>
+
+  <h2 class="section-title" data-level="section" data-toc="17.3　Fischer 投影式与 D/L" data-anchor="C17S3">17.3　Fischer 投影式与 D/L</h2>
+
+  <p>Fischer 投影式把三维结构压到纸面：<b>横线表示朝向读者，竖线表示远离读者</b>。判断 R/S 时，若最小基团在横线上，先按纸面方向判断，再把结果反转；若在竖线上，直接判断。</p>
+
+  <div class="example">
+    <div class="box-title"><span>例 17-2　D-甘油醛</span><span class="tag">FISCHER</span></div>
+    <div class="example-body wide-left">
+      <div>
+        <p>D-甘油醛的 —OH 在右侧，构型为 <i>R</i>。</p>
+        <p>L-甘油醛的 —OH 在左侧，构型为 <i>S</i>。</p>
+        <p class="small">D/L 是相对于甘油醛的构型标记，不等于旋光方向（+/-）。</p>
+      </div>
+      <div class="center">
+        <div class="fischer">
+          <div class="f-top">CHO</div>
+          <div class="f-mid"><span>H</span><span class="f-c">C</span><span>OH</span></div>
+          <div class="f-bottom">CH<sub>2</sub>OH</div>
+        </div>
+        <div class="small" style="margin-top:1mm;">D-甘油醛（R）</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="box-title"><span>例 17-3　L-丙氨酸</span><span class="tag">FISCHER</span></div>
+    <div class="example-body wide-left">
+      <div>
+        <p>L-丙氨酸的 —NH<sub>2</sub> 在左侧，构型为 <i>S</i>。</p>
+        <p>优先级：—NH<sub>2</sub>（1）＞—COOH（2）＞—CH<sub>3</sub>（3）＞—H（4）。</p>
+        <p class="small">天然蛋白质中的氨基酸多为 L 型。</p>
+      </div>
+      <div class="center">
+        <div class="fischer">
+          <div class="f-top">COOH</div>
+          <div class="f-mid"><span>H<sub>2</sub>N</span><span class="f-c">C</span><span>H</span></div>
+          <div class="f-bottom">CH<sub>3</sub></div>
+        </div>
+        <div class="small" style="margin-top:1mm;">L-丙氨酸（S）</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="extend">
+    <div class="box-title">半胱氨酸的“例外”</div>
+    <p>L-半胱氨酸的侧链是 —CH<sub>2</sub>SH。由于 S 的原子序数大于 O，—CH<sub>2</sub>SH 的优先级高于 —COOH，导致 L-半胱氨酸的 R/S 标记是 <i>R</i>，而不是通常的 <i>S</i>。这说明 D/L 与 R/S 是两套独立标记，不能简单互换。</p>
+  </div>
+
+  <h2 class="section-title" data-level="section" data-toc="17.4　外消旋与内消旋" data-anchor="C17S4">17.4　外消旋与内消旋</h2>
+
+  <div class="card-grid">
+    <div class="card">
+      <h4>外消旋体</h4>
+      <p>等量的 R 型和 S 型混合物，旋光性相互抵消，宏观上不旋光。用 (±) 或 dl 表示。</p>
+    </div>
+    <div class="card">
+      <h4>内消旋体</h4>
+      <p>分子内有对称面，两个手性中心的构型相反（如 2R,3S），整体不旋光。它不是外消旋体，而是单一化合物。</p>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="box-title"><span>例 17-4　酒石酸的立体异构</span><span class="tag">MESO</span></div>
+    <div class="example-body wide-left">
+      <div>
+        <p>2,3-二羟基丁二酸有两个手性碳，共有三种立体异构：</p>
+        <ul class="tight">
+          <li>(2R,3R)：右旋酒石酸；</li>
+          <li>(2S,3S)：左旋酒石酸；</li>
+          <li>(2R,3S)：内消旋酒石酸，有对称面，不旋光。</li>
+        </ul>
+      </div>
+      {{ fig('tartaricacid', '2,3-二羟基丁二酸（酒石酸）', 'small') }}
+    </div>
+  </div>
+
+  <h2 class="section-title" data-level="section" data-toc="17.5　手性药物" data-anchor="C17S5">17.5　手性药物</h2>
+
+  <p>手性药物的两个对映体，在生物体内可能表现出完全不同的活性。最著名的教训是沙利度胺（反应停）：一个对映体有镇静作用，另一个有致畸性；当年以消旋体用于妊娠止吐，造成了严重悲剧。</p>
+
+  <div class="example">
+    <div class="box-title"><span>例 17-5　布洛芬的两个对映体</span><span class="tag">DRUG</span></div>
+    <div class="example-body wide-left">
+      <div>
+        <p>布洛芬的结构为 2-(4-异丁基苯基)丙酸，α 碳是手性碳。</p>
+        <p>(S)-布洛芬的活性较强；(R)-布洛芬在体内可转化为 (S) 型，因此临床上常用外消旋体。</p>
+      </div>
+      {{ fig('ibuprofen', '布洛芬：α 碳为手性碳', 'small') }}
+    </div>
+  </div>
+
+  <h2 class="section-title" data-level="section" data-toc="17.6　例析与易错" data-anchor="C17S6">17.6　例析与易错</h2>
+
+  <div class="table-wrap">
+    <table class="compact">
+      <thead><tr><th style="width:34%">错误说法</th><th style="width:30%">正确说法</th><th>错因</th></tr></thead>
+      <tbody>
+        <tr><td>连四个基团的碳就是手性碳</td><td>连四个不同基团的碳才是手性碳</td><td>漏了“不同”这一条件。</td></tr>
+        <tr><td>有手性碳的分子一定旋光</td><td>内消旋体有手性碳但不旋光</td><td>分子内对称面使整体不手性。</td></tr>
+        <tr><td>D 型一定右旋</td><td>D/L 是构型标记，与 +/- 旋光方向无必然关系</td><td>把构型与旋光性混为一谈。</td></tr>
+        <tr><td>L-丙氨酸是 R 型</td><td>L-丙氨酸是 S 型</td><td>优先级：NH<sub>2</sub>＞COOH＞CH<sub>3</sub>＞H。</td></tr>
+        <tr><td>外消旋体是纯净物</td><td>外消旋体是 R/S 等量混合物</td><td>宏观不旋光，但不是单一化合物。</td></tr>
+        <tr><td>Fischer 投影式横线朝后</td><td>横线朝前，竖线朝后</td><td>投影规则记反。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tip-box">
+    <div class="box-title">R/S 判断的“三件事”</div>
+    <ul class="checklist">
+      <li>四个基团是否真的不同？</li>
+      <li>最小基团是否朝后？没有就旋转或反转。</li>
+      <li>1→2→3 是顺时针 R、逆时针 S，不要与顺反混淆。</li>
+    </ul>
+  </div>
+</div>

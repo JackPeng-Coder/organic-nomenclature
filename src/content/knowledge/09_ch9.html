@@ -1,0 +1,174 @@
+<div class="chapter">
+  <div class="chapter-head">
+    <div class="chapter-kicker">CHAPTER 09 · CIS / TRANS AND E / Z</div>
+    <h1 class="chapter-title" data-level="chapter" data-toc="第9章　顺反异构与 Z/E 标记" data-anchor="C9">顺反异构与 Z/E 标记</h1>
+    <p class="chapter-lead">
+      顺反是“相同基团在同侧还是异侧”，Z/E 是“较优基团在同侧还是异侧”。两套语言看起来相似，却经常得出不同的答案。本章把判断顺序拆成可执行的步骤。
+    </p>
+    <div class="chapter-nav">
+      <span><b>9.1</b> 顺反异构的条件</span>
+      <span><b>9.2</b> Z/E 与次序规则</span>
+      <span><b>9.3</b> 顺反 ≠ Z/E</span>
+      <span><b>9.4</b> 环状与多烯</span>
+      <span><b>9.5</b> 例析与易错</span>
+    </div>
+  </div>
+
+  <h2 class="section-title" data-level="section" data-toc="9.1　顺反异构的条件" data-anchor="C9S1">9.1　顺反异构的条件</h2>
+
+  <p>顺反异构属于立体异构，前提是<b>旋转受限</b>：双键不能自由旋转，环也不能自由翻转。除此之外，双键每个碳上必须连有两个不同的基团。</p>
+
+  <div class="rule-box">
+    <div class="box-title">判断有没有顺反异构</div>
+    <ol>
+      <li>找双键（或环）。</li>
+      <li>看双键左碳：连的两个基团是否不同？</li>
+      <li>看双键右碳：连的两个基团是否不同？</li>
+      <li>两边都“不同”，才有顺反异构；只要有一边连了两个相同基团，就没有。</li>
+    </ol>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <h4>有：2-丁烯</h4>
+      <p><span class="chem">CH<sub>3</sub>CH=CHCH<sub>3</sub></span>，每个双键碳都连 H 和 CH<sub>3</sub>。</p>
+    </div>
+    <div class="card">
+      <h4>无：2-甲基丙烯</h4>
+      <p><span class="chem">(CH<sub>3</sub>)<sub>2</sub>C=CH<sub>2</sub></span>，左侧碳连两个相同 CH<sub>3</sub>。</p>
+    </div>
+    <div class="card">
+      <h4>有：1,2-二氯乙烯</h4>
+      <p><span class="chem">CHCl=CHCl</span>，每个碳都连 H 和 Cl。</p>
+    </div>
+    <div class="card">
+      <h4>无：2-甲基-2-丁烯</h4>
+      <p><span class="chem">(CH<sub>3</sub>)<sub>2</sub>C=CHCH<sub>3</sub></span>，左侧碳连两个 CH<sub>3</sub>。</p>
+    </div>
+  </div>
+
+  <h2 class="section-title" data-level="section" data-toc="9.2　Z/E 与次序规则" data-anchor="C9S2">9.2　Z/E 与次序规则</h2>
+
+  <p>Z/E 不比较“相同基团”，而是比较双键每个碳上的两个基团，按<b>次序规则（CIP 规则）</b>选出较优基团。两个较优基团在同侧为 <i>Z</i>（zusammen，同侧），在异侧为 <i>E</i>（entgegen，异侧）。</p>
+
+  <div class="rule-box">
+    <div class="box-title">次序规则：三步比较</div>
+    <ol>
+      <li><b>比直接相连的原子：</b>原子序数大者优先。例如 Br＞Cl＞O＞N＞C＞H。</li>
+      <li><b>第一个原子相同，继续往下比：</b>把与它相连的原子按原子序数从大到小排列，逐项比较，先出现差异者优先。</li>
+      <li><b>多重键按“重复原子”处理：</b>双键原子算两次，三键算三次。例如 —CHO 的碳连 O 两次、H 一次；—CH<sub>2</sub>OH 的碳连 O 一次、H 两次，所以 —CHO 优先。</li>
+    </ol>
+  </div>
+
+  <div class="example">
+    <div class="box-title"><span>例 9-1　2-丁烯的 Z/E</span><span class="tag">Z / E</span></div>
+    <div class="example-body">
+      <div class="center">
+        {{ fig('cis2butene', '顺-2-丁烯 = (Z)-2-丁烯', 'small') }}
+        <div class="name">(Z)-2-丁烯</div>
+      </div>
+      <div class="center">
+        {{ fig('trans2butene', '反-2-丁烯 = (E)-2-丁烯', 'small') }}
+        <div class="name">(E)-2-丁烯</div>
+      </div>
+    </div>
+    <div class="analysis"><b>读法：</b>每个双键碳上 CH<sub>3</sub>＞H。两个 CH<sub>3</sub> 在同侧为 Z，在异侧为 E。对 2-丁烯，顺式就是 Z，反式就是 E。</div>
+  </div>
+
+  <h2 class="section-title" data-level="section" data-toc="9.3　顺反 ≠ Z/E" data-anchor="C9S3">9.3　顺反 ≠ Z/E</h2>
+
+  <p>“顺/反”通常选两个相同的基团来比较；Z/E 选的是每个碳上的较优基团。如果较优基团不是那两个相同基团，结论就会相反。</p>
+
+  <div class="example">
+    <div class="box-title"><span>例 9-2　3-甲基-2-戊烯</span><span class="tag">CIS ≠ Z</span></div>
+    <div class="example-body single">
+      <p>结构：<span class="chem">CH<sub>3</sub>—CH=C(CH<sub>3</sub>)—CH<sub>2</sub>CH<sub>3</sub></span></p>
+      <p><b>左碳（C2）：</b>CH<sub>3</sub>＞H。</p>
+      <p><b>右碳（C3）：</b>CH<sub>2</sub>CH<sub>3</sub>＞CH<sub>3</sub>（乙基的第一个碳连 C,H,H，甲基只连 H,H,H）。</p>
+      <p>若把两个 CH<sub>3</sub> 画在同侧，看起来是“顺式”；但较优基团是左碳的 CH<sub>3</sub> 和右碳的 C<sub>2</sub>H<sub>5</sub>，它们在异侧，所以构型是 <b>E</b>。</p>
+      <p class="small">结论：顺-3-甲基-2-戊烯 = (E)-3-甲基-2-戊烯。不要把“顺式”直接翻译成 Z。</p>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="box-title"><span>例 9-3　1-氯-2-甲基-1-丁烯</span><span class="tag">CIS ≠ E</span></div>
+    <div class="example-body single">
+      <p>结构：<span class="chem">CH(Cl)=C(CH<sub>3</sub>)(CH<sub>2</sub>CH<sub>3</sub>)</span></p>
+      <p><b>左碳（C1）：</b>Cl＞H。</p>
+      <p><b>右碳（C2）：</b>C<sub>2</sub>H<sub>5</sub>＞CH<sub>3</sub>。</p>
+      <p>若把 Cl 和 CH<sub>3</sub> 画在同侧，看似“顺式”；但 Cl 与 C<sub>2</sub>H<sub>5</sub> 在异侧，所以是 <b>E</b>。</p>
+    </div>
+  </div>
+
+  <div class="warning">
+    <div class="box-title">“顺反”与“Z/E”不能互相套用</div>
+    <p>顺/反只适用于双键两端各有一对相同（或可比较）基团的简单情形；Z/E 适用于所有双键。遇到四个基团都不同的烯烃，只能用 Z/E，不能说“顺/反”。</p>
+  </div>
+
+  <h2 class="section-title" data-level="section" data-toc="9.4　环状与多烯" data-anchor="C9S4">9.4　环状与多烯</h2>
+
+  <p>环状分子的顺反，是相对于环平面判断：两个取代基在同侧为顺，异侧为反。环上一般不使用 Z/E，因为环本身已经固定了相对位置。</p>
+
+  <div class="example">
+    <div class="box-title"><span>例 9-4　1,2-二甲基环己烷的顺反</span><span class="tag">RING</span></div>
+    <div class="example-body wide-left">
+      <div>
+        <p>两个甲基在环平面同侧：顺-1,2-二甲基环己烷。</p>
+        <p>两个甲基在环平面异侧：反-1,2-二甲基环己烷。</p>
+        <p class="small">1,3-、1,4-二取代同理；先确定环平面，再看取代基朝上还是朝下。</p>
+      </div>
+      {{ fig('12dimethylcyclohexane', '1,2-二甲基环己烷（未标立体）', 'small') }}
+    </div>
+  </div>
+
+  <p>多烯的每个双键都可以有独立的 Z/E 构型。命名时把每个双键的构型写在名称前，用逗号隔开，例如 <span class="name">(2Z,4E)-2,4-己二烯</span>。高中阶段只需理解格式，不必展开复杂多烯。</p>
+
+  <div class="extend">
+    <div class="box-title">Z/E 与顺反的对应表</div>
+    <table class="compact" style="margin-top:1.5mm;">
+      <thead><tr><th>结构</th><th>顺反</th><th>Z/E</th></tr></thead>
+      <tbody>
+        <tr><td>2-丁烯（两个 CH<sub>3</sub> 同侧）</td><td>顺</td><td>Z</td></tr>
+        <tr><td>2-丁烯（两个 CH<sub>3</sub> 异侧）</td><td>反</td><td>E</td></tr>
+        <tr><td>3-甲基-2-戊烯（两个 CH<sub>3</sub> 同侧）</td><td>顺</td><td>E</td></tr>
+        <tr><td>1-氯-2-甲基-1-丁烯（Cl 与 CH<sub>3</sub> 同侧）</td><td>顺</td><td>E</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="section-title" data-level="section" data-toc="9.5　例析与易错" data-anchor="C9S5">9.5　例析与易错</h2>
+
+  <div class="example">
+    <div class="box-title"><span>例 9-5　1-溴-1-氯-2-氟-2-碘乙烯</span><span class="tag">Z / E</span></div>
+    <div class="example-body wide-left">
+      <div>
+        <p>左碳：Br＞Cl；右碳：I＞F。</p>
+        <p>若 Br 与 I 在同侧，为 Z；在异侧，为 E。</p>
+        <p class="small">四个基团都不同，不能用顺/反，只能用 Z/E。</p>
+      </div>
+      {{ fig('ez_dibromo', '1-溴-1-氯-2-氟-2-碘乙烯（未标构型）', 'small') }}
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table class="compact">
+      <thead><tr><th style="width:34%">错误说法</th><th style="width:30%">正确说法</th><th>错因</th></tr></thead>
+      <tbody>
+        <tr><td>顺-3-甲基-2-戊烯 = (Z)-3-甲基-2-戊烯</td><td>顺-3-甲基-2-戊烯 = (E)-3-甲基-2-戊烯</td><td>把“顺”直接等同于 Z，没有比较较优基团。</td></tr>
+        <tr><td>2-甲基-2-丁烯有顺反异构</td><td>2-甲基-2-丁烯无顺反异构</td><td>2 号碳连两个相同 CH<sub>3</sub>。</td></tr>
+        <tr><td>1,2-二氯乙烯的顺式 = E</td><td>顺-1,2-二氯乙烯 = (Z)-1,2-二氯乙烯</td><td>Cl＞H，同侧为 Z。</td></tr>
+        <tr><td>所有烯烃都有顺反异构</td><td>只有双键两端各连不同基团时才有</td><td>遗漏了“每个碳两个基团不同”的条件。</td></tr>
+        <tr><td>(Z)-2-丁烯 = 反-2-丁烯</td><td>(Z)-2-丁烯 = 顺-2-丁烯</td><td>Z/E 与顺反的对应关系记反。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tip-box">
+    <div class="box-title">Z/E 判断的三步口诀</div>
+    <ul class="checklist">
+      <li>先看每个双键碳：连的两个基团是否不同？不同才有立体异构。</li>
+      <li>再按次序规则，各选一个较优基团。</li>
+      <li>较优基团同侧为 Z，异侧为 E；不要回头用“相同基团”判断。</li>
+    </ul>
+  </div>
+</div>

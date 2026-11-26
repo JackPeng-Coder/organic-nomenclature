@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>封面</title>
+<link rel="stylesheet" href="{{ css_uri }}">
+<style>
+  @page { size: A4; margin: 0; }
+  html, body { margin: 0; padding: 0; background: #fff; }
+  .cover-page { page-break-after: avoid; }
+</style>
+</head>
+<body>
+<div class="cover-page {% if light %}cover-light{% endif %}">
+  <div class="cover-bg"></div>
+  <div class="cover-grid"></div>
+  <div class="cover-ring"></div>
+  <div class="cover-ring r2"></div>
+  <div class="cover-ring r3"></div>
+
+  <div class="cover-inner">
+    <div class="cover-top">
+      <div>
+        <div style="font-size:9.2pt; letter-spacing:0.30em;">高中有机化学命名全书</div>
+        <div style="margin-top:2.2mm; font-family:'Times New Roman',serif; font-size:8pt; letter-spacing:0.18em; opacity:.7;">A COMPANION SET FOR HIGH SCHOOL CHEMISTRY</div>
+      </div>
+      <div class="cover-mark">{{ mark }}</div>
+    </div>
+
+    <div class="cover-volume">{{ volume_no }}</div>
+    <div class="cover-kicker">{{ kicker }}</div>
+    <div class="cover-title">{{ title|safe }}</div>
+    <div class="cover-subtitle">{{ subtitle }}</div>
+    <div class="cover-rule"></div>
+
+    <div class="cover-points">
+      {% for p in points %}<span>{{ p }}</span>{% endfor %}
+    </div>
+
+    <div class="cover-bottom">
+      <div><b>{{ bottom_left }}</b></div>
+      <div style="font-family:'Times New Roman',serif; letter-spacing:0.16em;">{{ bottom_right }}</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

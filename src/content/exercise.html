@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>高中有机化学命名配套练习</title>
+<link rel="stylesheet" href="{{ css_uri }}">
+<style>
+  @page { size: A4; }
+</style>
+</head>
+<body class="exercise-body">
+
+{% macro render_question(item, idx) %}
+  <div class="q">
+    <div class="q-head">
+      <div class="q-num">{{ idx }}</div>
+      <div class="q-body">
+        <p>{{ item.prompt|safe }}
+          {% if item.difficulty == '基础' %}<span class="q-tag base">基础</span>
+          {% elif item.difficulty == '提升' %}<span class="q-tag up">提升</span>
+          {% elif item.difficulty == '高考' %}<span class="q-tag exam">高考</span>{% endif %}
+        </p>
+        {% if item.figure %}
+          <div class="q-figure">{{ fig(item.figure, '', 'small') }}</div>
+        {% endif %}
+        {% if item.figures %}
+          <div class="q-figure">
+            {% for f in item.figures %}{{ fig(f, '', 'xsmall') }}{% endfor %}
+          </div>
+        {% endif %}
+        {% if item.options %}
+          <div class="options">
+            {% set letters = ['A','B','C','D'] %}
+            {% for opt in item.options %}
+              <div class="opt"><b>{{ letters[loop.index0] }}</b><span>{{ opt|safe }}</span></div>
+            {% endfor %}
+          </div>
+        {% endif %}
+        {% if item.lines %}
+          <div class="answer-lines" style="--n:{{ item.lines }}"></div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endmacro %}
+
+<div class="front-section">
+  <div class="chapter-head">
+    <div class="chapter-kicker">HOW TO USE THIS WORKBOOK</div>
+    <h1 class="chapter-title" data-level="part" data-toc="使用说明" data-anchor="E0">使用说明</h1>
+    <p class="chapter-lead">
+      这本练习册与《高中有机化学命名知识手册》的章节一一对应。每章 5 题，先做“命名”和“写结构”，再做选择、判断与填空；专项和模拟卷用于考前查漏。
+    </p>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <h4>建议节奏</h4>
+      <p>学完知识手册一章，当天完成对应 5 题；错题只标“错因关键词”，一周后重做。</p>
+    </div>
+    <div class="card">
+      <h4>书写要求</h4>
+      <p>位次之间用逗号，数字与汉字之间用短横；写结构简式时检查碳的四价。</p>
+    </div>
+    <div class="card">
+      <h4>答案使用</h4>
+      <p>全部答案在第四部分。先做完一整章再核对，避免边做边看。</p>
+    </div>
+    <div class="card">
+      <h4>难度标记</h4>
+      <p><span class="q-tag base">基础</span> 对应教材；<span class="q-tag up">提升</span> 需要两步推理；<span class="q-tag exam">高考</span> 接近真题表达。</p>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <div class="box-title">写名称的 30 秒检查</div>
+    <ul class="checklist">
+      <li>主官能团选对了吗？主链含主官能团吗？</li>
+      <li>编号让主官能团位次最小了吗？再重键、再取代基？</li>
+      <li>相同基合并了吗？不同基“先简后繁”了吗？</li>
+      <li>逗号、短横、括号用对了吗？</li>
+      <li>顺/反、Z/E、R/S 是否需要？</li>
+    </ul>
+  </div>
+
+  <div class="footer-note">
+    题目中的结构式均按高中教材常用画法绘制；部分题目改编自公开高考题与常见模拟题，答案以高中教材写法为主。
+  </div>
+</div>
+
+<div class="part-opener workbook-part">
+  <div class="part-no">01</div>
+  <div class="part-kicker">PART ONE · CHAPTER-BY-CHAPTER</div>
+  <h1 data-level="part" data-toc="第一部分　分章同步练" data-anchor="EP1">分章同步练</h1>
+  <p class="part-desc">
+    20 章、100 题，与知识手册的章节一一对应。建议学完一章就做一章：先写名称，再写结构，最后做选择、判断和填空。每章末尾留了“错题记录”，只写错因关键词。
+  </p>
+  <div class="part-list">
+    {% for ch in chapters %}<span>第{{ ch.num }}章　{{ ch.title }}</span>{% endfor %}
+  </div>
+</div>
+
+{% for ch in chapters %}
+  {% set ch_items = items[ch.num] %}
+  <div class="exercise-chapter">
+    <div class="exercise-chapter-head">
+      <div class="num">{{ "%02d"|format(ch.num) }}</div>
+      <h2 data-level="chapter" data-toc="第{{ ch.num }}章　{{ ch.title }}" data-anchor="E{{ ch.num }}">{{ ch.title }}</h2>
+      <div class="meta">{{ ch.subtitle }}　·　{{ ch_items|length }} 题</div>
+    </div>
+    {% for item in ch_items %}
+      {{ render_question(item, loop.index) }}
+    {% endfor %}
+    <div class="review-box">
+      <div class="box-title">本章错题记录 · 错因关键词</div>
+      <div class="answer-lines" style="--n:3"></div>
+    </div>
+  </div>
+{% endfor %}
+
+<div class="part-opener workbook-part">
+  <div class="part-no">02</div>
+  <div class="part-kicker">PART TWO · TARGETED PRACTICE</div>
+  <h1 data-level="part" data-toc="第二部分　专项突破" data-anchor="EP2">专项突破</h1>
+  <p class="part-desc">
+    分章练习解决“会不会”，专项练习解决“稳不稳”。八个专项把最容易失分的主链、编号、苯环、多官能团、顺反、手性、高分子和改错单独拆开。
+  </p>
+  <div class="part-list">
+    {% for sp in specials %}<span>{{ sp.title }}</span>{% endfor %}
+  </div>
+</div>
+
+{% for sp in specials %}
+  <div class="exercise-chapter">
+    <div class="exercise-chapter-head">
+      <div class="num">S{{ loop.index }}</div>
+      <h2 data-level="chapter" data-toc="{{ sp.title }}" data-anchor="ES{{ loop.index }}">{{ sp.title }}</h2>
+      <div class="meta">{{ sp.subtitle }}　·　{{ sp['items']|length }} 题</div>
+    </div>
+    {% for item in sp['items'] %}
+      {{ render_question(item, loop.index) }}
+    {% endfor %}
+  </div>
+{% endfor %}
+
+<div class="part-opener workbook-part">
+  <div class="part-no">03</div>
+  <div class="part-kicker">PART THREE · MOCK PAPERS</div>
+  <h1 data-level="part" data-toc="第三部分　综合模拟卷" data-anchor="EP3">综合模拟卷</h1>
+  <p class="part-desc">
+    两套命名专项卷，每套 15 题、满分 100 分、建议 45 分钟。题目覆盖命名、写结构、选择、判断与填空，难度接近高考有机推断中的命名填空。
+  </p>
+  <div class="part-list">
+    {% for mk in mocks %}<span>{{ mk.title }}　·　{{ mk.subtitle }}</span>{% endfor %}
+    <span>建议：先做命名与写结构，再做选择与判断</span>
+    <span>做完后对照第四部分答案，记录错因</span>
+  </div>
+</div>
+
+{% for mk in mocks %}
+  <div class="exercise-chapter">
+    <div class="mock-head">
+      <h2 data-level="chapter" data-toc="{{ mk.title }}" data-anchor="EM{{ loop.index }}">{{ mk.title }}</h2>
+      <div class="mock-meta">
+        <span>时间：45 分钟</span>
+        <span>满分：100 分</span>
+        <span>题量：15 题</span>
+        <span>得分：__________</span>
+      </div>
+      <div class="mock-score">建议：先做命名与写结构，再做选择与判断；最后检查标点与立体描述符。</div>
+    </div>
+    <table class="score-table">
+      <thead><tr><th>题号</th><th>1—5</th><th>6—10</th><th>11—12</th><th>13—14</th><th>15</th><th>总分</th></tr></thead>
+      <tbody><tr><td>得分</td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody>
+    </table>
+    {% for item in mk['items'] %}
+      {{ render_question(item, loop.index) }}
+    {% endfor %}
+  </div>
+{% endfor %}
+
+<div class="part-opener workbook-part">
+  <div class="part-no">04</div>
+  <div class="part-kicker">PART FOUR · ANSWERS AND EXPLANATIONS</div>
+  <h1 data-level="part" data-toc="第四部分　答案与解析" data-anchor="EP4">答案与解析</h1>
+  <p class="part-desc">
+    全部题目给出答案；易错题、综合题和模拟卷附解析。答案按“章号-题号”编排，专项用“专一-1”等标记，模拟卷用“A-1”“B-1”。先做完再核对，效果最好。
+  </p>
+  <div class="part-list">
+    <span>第1—20章　分章答案</span>
+    <span>专项一至专项八　答案</span>
+    <span>模拟卷 A、B　答案</span>
+    <span>错题复盘：错因关键词 + 正确规则</span>
+  </div>
+</div>
+
+<div class="front-section" style="break-before:auto;">
+  <p class="small">答案按“章号-题号”编排，例如“4-2”表示第 4 章第 2 题；专项用“专一-1”等标记，模拟卷用“A-1”“B-1”。</p>
+</div>
+
+{% for ch in chapters %}
+  {% set ch_items = items[ch.num] %}
+  <div class="answer-group">
+    <h3>第{{ ch.num }}章　{{ ch.title }}</h3>
+    {% for item in ch_items %}
+      <div class="answer-item">
+        <span class="a-num">{{ ch.num }}-{{ loop.index }}</span>
+        <span class="a-text">{{ item.answer|safe }}</span>
+        {% if item.analysis %}<span class="a-analysis">{{ item.analysis|safe }}</span>{% endif %}
+      </div>
+    {% endfor %}
+  </div>
+{% endfor %}
+
+{% for sp in specials %}
+  {% set sp_idx = loop.index %}
+  {% set cn_num = ['一','二','三','四','五','六','七','八'] %}
+  <div class="answer-group">
+    <h3>{{ sp.title }}</h3>
+    {% for item in sp['items'] %}
+      <div class="answer-item">
+        <span class="a-num">专{{ cn_num[sp_idx - 1] }}-{{ loop.index }}</span>
+        <span class="a-text">{{ item.answer|safe }}</span>
+        {% if item.analysis %}<span class="a-analysis">{{ item.analysis|safe }}</span>{% endif %}
+      </div>
+    {% endfor %}
+  </div>
+{% endfor %}
+
+{% for mk in mocks %}
+  {% set mk_idx = loop.index0 %}
+  <div class="answer-group">
+    <h3>{{ mk.title }}</h3>
+    {% for item in mk['items'] %}
+      <div class="answer-item">
+        <span class="a-num">{{ "AB"[mk_idx] }}-{{ loop.index }}</span>
+        <span class="a-text">{{ item.answer|safe }}</span>
+        {% if item.analysis %}<span class="a-analysis">{{ item.analysis|safe }}</span>{% endif %}
+      </div>
+    {% endfor %}
+  </div>
+{% endfor %}
+
+<div class="footer-note">
+  本练习册以高中教材写法为主；2017 规则/ IUPAC 写法的差异见知识手册附录 D。考试时以当地评分细则为准。
+</div>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>目录</title>
+<link rel="stylesheet" href="{{ css_uri }}">
+<style>
+  @page { size: A4; }
+  html, body { margin: 0; padding: 0; background: #fff; }
+  .toc-page { padding: 0; }
+  .toc-list { column-count: 1; }
+</style>
+</head>
+<body>
+<div class="toc-page">
+  <div class="toc-head">
+    <div class="kicker">{{ book_kicker }} · CONTENTS</div>
+    <h1>目录</h1>
+    <div style="margin-top:3mm; font-family:'Microsoft YaHei',sans-serif; font-size:9pt; color:#6d7f82; letter-spacing:.06em;">
+      {{ book_title }}　|　页码为正文页码
+    </div>
+  </div>
+
+  <ul class="toc-list">
+    {% for e in entries %}
+      <li class="toc-item {{ e['level'] }}">
+        <span class="toc-title">{{ e['title'] }}</span>
+        <span class="toc-dots"></span>
+        <span class="toc-page">{{ page_map.get(e['anchor'], '—') }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <div class="toc-note">
+    <b>使用建议</b>　知识手册与配套练习的章节编号一一对应。先读规则与例析，再完成对应练习；练习册末尾集中给出答案与重点解析，便于自测后核对。
+    带“拓展/选学”标记的内容用于强基、竞赛或大学衔接，不影响高考必考写法。
+  </div>
+</div>
+</body>
+</html>
